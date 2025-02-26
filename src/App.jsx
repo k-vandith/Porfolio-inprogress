@@ -66,14 +66,15 @@ const About = () => (
       </div>
     </div>
     <div className="profile-image">
-      {/* Correct reference to the profile image in the public/images folder */}
-      <img src="public\images\pic.jpg" alt="Profile" className="profile-img" />
+      {/* Make sure this image is in public/images/profile.jpg */}
+      <img src="images\pic.jpg" alt="Profile" className="profile-img" />
     </div>
+
   </div>
 );
 
-
 const Projects = () => {
+  // Sample projects data (update as needed)
   const projectData = [
     { name: 'Aero Hive', description: 'Contributed to the website for a startup in my college called Aero Hive.' },
     { name: 'AI Visual Quiz', description: 'Created during a 4-hour hackathon by Igebra.ai to help users learn through images.' },
@@ -87,9 +88,9 @@ const Projects = () => {
         {projectData.map((project, index) => (
           <div key={index} className="project-card">
             <div className="project-image">
-              {/* Correctly referencing images from the public/images folder */}
+              {/* Ensure your project images are in public/images/y1.jpg, y2.jpg, y3.jpg */}
               <img
-                src={`public/images/y${index + 1}.jpg`}
+                src={`images/y${index + 1}.jpg`}
                 alt={`Project ${project.name}`}
                 className="project-img"
               />
