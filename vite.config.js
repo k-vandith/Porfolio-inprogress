@@ -1,8 +1,24 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
-// https://vite.dev/config/
 export default defineConfig({
-  base:"/Porfolio-inprogress/",
+  base: "/Porfolio-inprogress/",
   plugins: [react()],
-})
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            // Split vendor libraries into separate chunks:
+            if (id.includes('@splinetool/react-spline')) return 'spline';
+            if (id.includes('three')) return 'three';
+            if (id.includes('framer-motion')) return 'framer';
+            return 'vendor';
+          }
+        }
+      }
+    },
+    // Increase warning threshold if needed
+    chunkSizeWarningLimit: 1000,
+  }
+});

@@ -1,4 +1,3 @@
-// src/App.jsx
 import React, { useState, useEffect } from 'react';
 import Spline from '@splinetool/react-spline';
 import { motion, useAnimation } from 'framer-motion';
@@ -59,27 +58,26 @@ const About = () => (
         Full-stack developer passionate about creating modern web experiences.
       </p>
       <div className="slider">
-  <div className="skills">
-    {['React', 'Node.js', 'TypeScript', 'Genai', 'HTML', 'CSS', 'JAVA', 'C++', 'Spline', 'Figma'].map(skill => (
-      <span key={skill} className="skill-chip">{skill}</span>
-    ))}
-  </div>
-</div>
-
+        <div className="skills">
+          {['React', 'Node.js', 'TypeScript', 'Genai', 'HTML', 'CSS', 'JAVA', 'C++', 'Spline', 'Figma'].map(skill => (
+            <span key={skill} className="skill-chip">{skill}</span>
+          ))}
+        </div>
+      </div>
     </div>
     <div className="profile-image">
-      {/* Replace the src URL with your own profile image */}
-      <img src="/images/pic.jpg" alt="Profile" className="profile-img" />
+      {/* Correct reference to the profile image in the public/images folder */}
+      <img src="public\images\pic.jpg" alt="Profile" className="profile-img" />
     </div>
   </div>
 );
 
+
 const Projects = () => {
-  // Sample projects data (update as needed)
   const projectData = [
-    { name: 'Aero Hive ', description: ' Contributed to the creation of the website for a startup in my college called Aero Hive.' },
-    { name: 'AI Visual Quiz', description: 'Created this during a 4-hour hackathon conducted by Igebra.ai to help users learn through images for better understanding and recollection' },
-    { name: 'Pill Pack', description: 'Created a interactive e-commerce site for medicines with prescription management. .' }
+    { name: 'Aero Hive', description: 'Contributed to the website for a startup in my college called Aero Hive.' },
+    { name: 'AI Visual Quiz', description: 'Created during a 4-hour hackathon by Igebra.ai to help users learn through images.' },
+    { name: 'Pill Pack', description: 'Interactive e-commerce site for medicines with prescription management.' }
   ];
 
   return (
@@ -89,8 +87,9 @@ const Projects = () => {
         {projectData.map((project, index) => (
           <div key={index} className="project-card">
             <div className="project-image">
+              {/* Correctly referencing images from the public/images folder */}
               <img
-                src={`/images/y${index + 1}.jpg`}  // y1.jpg, y2.jpg, y3.jpg
+                src={`public/images/y${index + 1}.jpg`}
                 alt={`Project ${project.name}`}
                 className="project-img"
               />
