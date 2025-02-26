@@ -1,3 +1,4 @@
+// vite.config.js
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
@@ -8,17 +9,14 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks(id) {
+          // Split node_modules packages into separate chunks
           if (id.includes('node_modules')) {
-            // Split vendor libraries into separate chunks:
-            if (id.includes('@splinetool/react-spline')) return 'spline';
-            if (id.includes('three')) return 'three';
-            if (id.includes('framer-motion')) return 'framer';
-            return 'vendor';
+            return id.toString().split('node_modules/')[1].split('/')[0];
           }
-        }
-      }
+        },
+      },
     },
-    // Increase warning threshold if needed
+    // Increase the chunk size warning limit (in kB) to 1000
     chunkSizeWarningLimit: 1000,
-  }
+  },
 });
